@@ -1,0 +1,374 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    list-style: none;
+}
+
+body {
+    height: 100vh;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(/futbol/imagenes/WhatsApp_Image_2024-07-24_at_1.53.49_PM-removebg-preview.png);
+    background-repeat:space;
+    margin: auto;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 780px;
+    height: 700px;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    padding: 2rem 0;
+    overflow: hidden;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+    padding-top: 50px;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #fff;
+    padding: 0 2.5rem;
+    text-align: center;
+}
+
+.header {
+    color: #3e3f5e;
+    font-size: 39px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.login-container {
+    left: 0;
+    z-index: 2;
+}
+
+.container.right-panel-active .login-container {
+    transform: translateX(100%);
+}
+
+.register-container {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.right-panel-active .register-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+}
+
+@keyframes show {
+
+    0%,
+    49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.overlay {
+    position: relative;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    color: #fff;
+    background: linear-gradient(135deg, #6dd5ed, #2193b0);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.overlay-panel {
+    position: absolute;
+    top: 0;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 4rem;
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.overlay-right {
+    right: 3%;
+    display: bold;
+
+
+    transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
+
+.socials-wrapper {
+    width: 100%;
+}
+
+.socials-wrapper header h2 {
+    background-color: #fff;
+    color: #3e3f5e;
+    font-size: 16px;
+    position: relative;
+    text-align: center;
+    z-index: 10;
+    margin-bottom: -15px;
+}
+
+.socials-wrapper header h2::before,
+.socials-wrapper header h2::after {
+    background-color: #d3d3e2;
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    top: 42%;
+    transform: translateY(-50%);
+    width: 15.5%;
+}
+
+.socials-wrapper header h2::after {
+    right: 0;
+}
+
+.socials-wrapper header h2::before {
+    left: 0;
+}
+
+.socials-wrapper ul {
+    display: flex;
+}
+
+.socials-wrapper ul li {
+    margin: 8px;
+}
+
+.socials-wrapper ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.socials-wrapper ul li a {
+    font-size: 20px;
+    align-items: center;
+    border-radius: 4px;
+    color: #fff;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms ease;
+    width: 40px;
+
+}
+
+.socials-wrapper ul li a.google {
+    background-color: crimson;
+}
+
+.socials-wrapper ul li a.facebook {
+    background-color: rgb(20, 67, 220);
+}
+
+.socials-wrapper ul li a.twitter {
+    background-color: rgba(0, 0, 0, 0.452);
+}
+
+
+.socials-wrapper ul li a:hover {
+    transform: translateY(-4px);
+}
+
+a .link,
+a .login-link {
+    color: #606470;
+}
+
+a .link:hover,
+a .login-link:hover {
+    color: #3c4245;
+    text-decoration: underline;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+
+.button-input-group {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin-top: 0.5rem;
+
+}
+
+
+.group {
+    width: 100%;
+    height: 47px;
+    margin-bottom: 1.3rem;
+}
+
+.group input,
+.group button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border: 0.4rem;
+}
+
+.group button {
+    width: 40%;
+}
+
+.group input {
+    border: 2px solid #ddd;
+    padding: 0 1.1rem;
+    transition: 100ms ease all;
+
+
+}
+
+.group input::placeholder {
+    opacity: 0.8;
+
+}
+
+.form-link.forgot {
+    margin: -0.3rem 0 1.5rem 0;
+}
+
+input:focus {
+    border-radius: #0096ff;
+    outline: none;
+
+}
+
+
+
+.group.button-group {
+    width: 70%;
+}
+
+
+button {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background-color: #0096ff;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.group button:hover {
+    background-color: #6dd5ed;
+
+}
+
+.group button:active {
+    transform: scale(0.95);
+}
+
+.group button:focus {
+    outline: none;
+}
+
+
+.group button.trigger {
+    background-color: transparent;
+    border: 1px solid #fff;
+    margin-top: 1.8rem;
+}
+
+
+.group button .trigger:hover {
+    background-color: #fff;
+    color: #0092ca;
+}
+
+.opciones {
+    display: flex;
+    text-align: left;
+    box-sizing: border-box;
+    padding-right: 60%;
+
+
+
+}
+
+
+.opcion2 {
+    padding-right: 65%;
+}
+
+
+
